@@ -1,0 +1,9 @@
+.
+,
+!
+?
+myRobot
+equals
+right
+set
+head
