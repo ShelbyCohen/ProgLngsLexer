@@ -7,42 +7,41 @@ import scala.io.Source
   */
 object Main {
   def main(args: Array[String]) {
-    val file = "/Users/ShelbyCohen/Scala/grammar/src/sentences.txt"
+    val fileContents = ". . myRobot ." toString()
+
     var lexemes: List[String] = List()
+    lexemes = fileContents.split(" ").toList
 
-//    for (token <- Source.fromFile(file).getLines) {
-//      tokens = tokens :+ (token)
-//      println(tokens.split(" "))
-//    }
-
-    val fileContents = Source.fromFile(file).getLines.mkString
-    lexemes = fileContents.split(" ")
-    print(array.head)
-
-    println(sentence(lexemes))
+    println(sentence(lexemes.head, lexemes))
 
   }
 
   val myMap = Map("." -> "END", "myRobot" -> "IDENT")
 
-  def sentence(lexemes: List[String]): List[String] = {
-    var tokens: List[String] = List()
-    tokens = sentence(lexemes.head)
+  def sentence(lexeme: String, lexemes: List[String]): List[String] = {
+    // val file = "/Users/ShelbyCohen/Scala/grammar/src/sentences.txt"
+    // val fileContents = Source.fromFile(file).getLines.mkString
+    // lexemes = fileContents.split(" ")
 
-    println(getMapValue(array.head)) // "Value found: IDENT"
-    println(getMapValue("error")) // "No value found"
+    var tokens: List[String] = List()
+
+    if (isMapValue(lexemes.head))
+      tokens = getMapValue(lexemes.head) :: tokens
+    else sentence(lexemes.head, lexemes.tail)
   }
 
   //there is no concept of null pointer
+  def isMapValue(s: String): Boolean = {
+    myMap get s match {
+      case Some(nb) => true
+      case None => false
+    }
+  }
+
   def getMapValue(s: String): String = {
     myMap get s match {
-      case Some(nb) => "Value found: " + nb
+      case Some(nb) => nb
       case None => "No value found"
     }
   }
-  //    def getMapValue2(s: String): String =
-  //      val myMap = Map("IDENT" -> "myRobot", "test" -> 0)
-  //
-  //      myMap.get(s).map("Value found: " + _).getOrElse("No value found")
-
 }
