@@ -7,19 +7,31 @@ import scala.io.Source
   */
 object Main {
   def main(args: Array[String]) {
-    val fileContents = ". . myRobot ." toString()
+    val statement = "set myRobot jump ." toString()
 
-    var tokens: List[String] = List()
-    tokens = fileContents.split(" ").toList
+    // var tokens: List[String] = List()
+    // tokens = fileContents.split(" ").toList
 
-    println(sentence(tokens))
+    println(totalLex(statement))
+
+  }
+  val myMap = Map("." -> "END",
+                  "myRobot" -> "IDENT",
+                  "set" -> "Set",
+                  "jump" -> "ACTION")
+
+  // calls nextLex
+  // starts with string and ends with a list of tuples
+  def totalLex(statement: String): ((String, String), (String, String), (String, String) = {
+
 
   }
 
-  val myMap = Map("." -> "END", "myRobot" -> "IDENT")
-  // val myMap = Map("END" -> ".", "IDENT" -> "myRobot")
+  def nextLex(s: String): String = {
 
-  def sentence(tokens: List[String]): Map[String, String] = {
+  }
+
+  def lookup(tokens: List[String]): Map[String, String] = {
     // val file = "/Users/ShelbyCohen/Scala/grammar/src/sentences.txt"
     // val fileContents = Source.fromFile(file).getLines.mkString
     // lexemes = fileContents.split(" ")
@@ -36,10 +48,31 @@ object Main {
       else {
         newMap += (tokens.head -> "ERROR")
         println(newMap.get(tokens.head))
-        sentence(tokens.tail)
+        lookup(tokens.tail)
       }
     }
     else newMap
+  }
+
+  // ident takes a String lexeme and returns a lexeme, token, and the rest of the statement
+  // assume first char is a letter
+  def ident(lexeme: String, index: Int): (String, String, String) = {
+
+    token = lookup(lexeme)
+
+  }
+
+  // intLiteral takes a String lexeme and returns a lexeme, and the rest of the statement
+  // assume first char is a number
+  def intLiteral(lexeme: String, index: Int): (String, String, String) = {
+
+
+  }
+
+  // symbols takes a String lexeme and returns a lexeme, and the rest of the statement
+  // assume first char is a symbol
+  def symbols(lexeme: String, index: Int): (String, String) = {
+
   }
 
   //there is no concept of null pointer
