@@ -1,9 +1,13 @@
 package grammar
 
-object Main {
+object Main extends Lexer{
 
-  val statement = "set myRobot jump ." toString()
-  println(totalLex(statement))
+  def main(args: Array[String]): Unit = {
+    val statement = "set myRobot jump" toString()
+    println(totalLex(statement))
+  }
+
+
 
 }
 

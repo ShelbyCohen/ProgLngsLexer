@@ -24,7 +24,7 @@ package grammar
 
         if (inputStr1.isEmpty) currentList
         else {
-          val lexeme, token, theRest = nextLex(inputStr1)
+          val lexeme, token, theRest = nextLex(inputStr1).toString()
           val newPair = (lexeme, token)
           val updatedCurrentList = newPair :: currentList
           // reverse list of tuples in functional style
@@ -78,7 +78,7 @@ package grammar
       */
     def ident(inputStr: String, index: Int): (String, String, String) = {
       if (index > inputStr.length) (inputStr, lookup(inputStr), "")
-      else if (!inputStr.charAt(index).isLetter) (inputStr.substring(0, index), lookup(inputStr), inputStr.substring(index + 1, inputStr.length))
+      else if (!inputStr.charAt(index).isLetter) (inputStr.substring(0, index), lookup(inputStr), inputStr.substring(index + 1, inputStr.length - 1))
       else ident(inputStr, index + 1)
     }
 
@@ -93,7 +93,7 @@ package grammar
       */
     def intLiteral(inputStr: String, index: Int): (String, String, String) = {
       if (index > inputStr.length) (inputStr, lookup(inputStr), "")
-      else if (!inputStr.charAt(index).isDigit) (inputStr.substring(0, index), lookup(inputStr), inputStr.substring(index + 1, inputStr.length))
+      else if (!inputStr.charAt(index).isDigit) (inputStr.substring(0, index), lookup(inputStr), inputStr.substring(index + 1, inputStr.length - 1))
       else intLiteral(inputStr, index + 1)
     }
 
@@ -108,7 +108,7 @@ package grammar
       */
     def symbols(inputStr: String, index: Int): (String, String, String) = {
       if (index > inputStr.length) (inputStr, lookup(inputStr), "")
-      else if (inputStr.charAt(index).isLetterOrDigit) (inputStr.substring(0, index), lookup(inputStr), inputStr.substring(index + 1, inputStr.length))
+      else if (inputStr.charAt(index).isLetterOrDigit) (inputStr.substring(0, index), lookup(inputStr), inputStr.substring(index + 1, inputStr.length - 1))
       else symbols(inputStr, index + 1)
     }
 
