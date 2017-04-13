@@ -6,8 +6,5 @@ object Main extends Lexer{
     val statement = "set myRobot jump" toString()
     println(totalLex(statement))
   }
-
-
-
 }
 

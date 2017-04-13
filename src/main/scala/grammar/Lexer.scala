@@ -62,7 +62,7 @@ package grammar
       *         myMap value for the lexeme if found
       */
     def lookup(lexeme: String): String = {
-      if (lexeme.isEmpty) "Error, token is empty"
+      if (lexeme.isEmpty) "Error, token is empty!!"
       else if (isMapValue(lexeme)) getMapValue(lexeme)
       else "Error, lexeme is invalid"
     }
