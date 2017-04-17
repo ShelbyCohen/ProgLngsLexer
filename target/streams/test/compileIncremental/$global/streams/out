@@ -1,0 +1,71 @@
+[0m[[0mdebug[0m] [0m[0m
+[0m[[0mdebug[0m] [0mInitial source changes: [0m
+[0m[[0mdebug[0m] [0m	removed:Set()[0m
+[0m[[0mdebug[0m] [0m	added: Set(/Users/ShelbyCohen/Scala/grammar/src/test/scala-2.12/grammar/LexerTest.java)[0m
+[0m[[0mdebug[0m] [0m	modified: Set()[0m
+[0m[[0mdebug[0m] [0mRemoved products: Set()[0m
+[0m[[0mdebug[0m] [0mExternal API changes: API Changes: Set()[0m
+[0m[[0mdebug[0m] [0mModified binary dependencies: Set()[0m
+[0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set(/Users/ShelbyCohen/Scala/grammar/src/test/scala-2.12/grammar/LexerTest.java)[0m
+[0m[[0mdebug[0m] [0m[0m
+[0m[[0mdebug[0m] [0mSources indirectly invalidated by:[0m
+[0m[[0mdebug[0m] [0m	product: Set()[0m
+[0m[[0mdebug[0m] [0m	binary dep: Set()[0m
+[0m[[0mdebug[0m] [0m	external source: Set()[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(/Users/ShelbyCohen/Scala/grammar/src/test/scala-2.12/grammar/LexerTest.java)[0m
+[0m[[0mdebug[0m] [0mRecompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources[0m
+[0m[[0minfo[0m] [0mCompiling 1 Java source to /Users/ShelbyCohen/Scala/grammar/target/scala-2.12/test-classes...[0m
+[0m[[0mdebug[0m] [0mAttempting to call com.sun.tools.javac.api.JavacTool@5f4ee542 directly...[0m
+[0m[[31merror[0m] [0m/Users/ShelbyCohen/Scala/grammar/src/test/scala-2.12/grammar/LexerTest.java:3: package org.junit does not exist[0m
+[0m[[31merror[0m] [0morg.junit.Test[0m
+[0m[[31merror[0m] [0m/Users/ShelbyCohen/Scala/grammar/src/test/scala-2.12/grammar/LexerTest.java:6: package org.junit does not exist[0m
+[0m[[31merror[0m] [0morg.junit.Assert[0m
+[0m[[31merror[0m] [0m/Users/ShelbyCohen/Scala/grammar/src/test/scala-2.12/grammar/LexerTest.java:14: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   class Test[0m
+[0m[[31merror[0m] [0m  location: class grammar.LexerTest[0m
+[0m[[31merror[0m] [0mTest[0m
+[0m[[31merror[0m] [0m/Users/ShelbyCohen/Scala/grammar/src/test/scala-2.12/grammar/LexerTest.java:20: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   class Test[0m
+[0m[[31merror[0m] [0m  location: class grammar.LexerTest[0m
+[0m[[31merror[0m] [0mTest[0m
+[0m[[31merror[0m] [0m/Users/ShelbyCohen/Scala/grammar/src/test/scala-2.12/grammar/LexerTest.java:25: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   class Test[0m
+[0m[[31merror[0m] [0m  location: class grammar.LexerTest[0m
+[0m[[31merror[0m] [0mTest[0m
+[0m[[31merror[0m] [0m/Users/ShelbyCohen/Scala/grammar/src/test/scala-2.12/grammar/LexerTest.java:30: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   class Test[0m
+[0m[[31merror[0m] [0m  location: class grammar.LexerTest[0m
+[0m[[31merror[0m] [0mTest[0m
+[0m[[31merror[0m] [0m/Users/ShelbyCohen/Scala/grammar/src/test/scala-2.12/grammar/LexerTest.java:35: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   class Test[0m
+[0m[[31merror[0m] [0m  location: class grammar.LexerTest[0m
+[0m[[31merror[0m] [0mTest[0m
+[0m[[31merror[0m] [0m/Users/ShelbyCohen/Scala/grammar/src/test/scala-2.12/grammar/LexerTest.java:40: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   class Test[0m
+[0m[[31merror[0m] [0m  location: class grammar.LexerTest[0m
+[0m[[31merror[0m] [0mTest[0m
+[0m[[31merror[0m] [0m/Users/ShelbyCohen/Scala/grammar/src/test/scala-2.12/grammar/LexerTest.java:45: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   class Test[0m
+[0m[[31merror[0m] [0m  location: class grammar.LexerTest[0m
+[0m[[31merror[0m] [0mTest[0m
+[0m[[31merror[0m] [0m/Users/ShelbyCohen/Scala/grammar/src/test/scala-2.12/grammar/LexerTest.java:59: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   class Test[0m
+[0m[[31merror[0m] [0m  location: class grammar.LexerTest[0m
+[0m[[31merror[0m] [0mTest[0m
+[0m[[31merror[0m] [0m/Users/ShelbyCohen/Scala/grammar/src/test/scala-2.12/grammar/LexerTest.java:64: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   class Test[0m
+[0m[[31merror[0m] [0m  location: class grammar.LexerTest[0m
+[0m[[31merror[0m] [0mTest[0m
+[0m[[31merror[0m] [0m/Users/ShelbyCohen/Scala/grammar/src/test/scala-2.12/grammar/LexerTest.java:17: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   method assertEquals(java.lang.String,java.lang.String)[0m
+[0m[[31merror[0m] [0m  location: class grammar.LexerTest[0m
+[0m[[31merror[0m] [0massertEquals[0m
+[0m[[31merror[0m] [0m/Users/ShelbyCohen/Scala/grammar/src/test/scala-2.12/grammar/LexerTest.java:51: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   method Tuple3(java.lang.String,java.lang.String,java.lang.String)[0m
+[0m[[31merror[0m] [0m  location: class grammar.LexerTest[0m
+[0m[[31merror[0m] [0mTuple3[0m
+[0m[[31merror[0m] [0m/Users/ShelbyCohen/Scala/grammar/src/test/scala-2.12/grammar/LexerTest.java:55: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   method assertEquals(java.lang.String,java.lang.String)[0m
+[0m[[31merror[0m] [0m  location: class grammar.LexerTest[0m
+[0m[[31merror[0m] [0massertEquals[0m
+[0m[[31merror[0m] [0m(test:[31mcompileIncremental[0m) javac returned nonzero exit code[0m

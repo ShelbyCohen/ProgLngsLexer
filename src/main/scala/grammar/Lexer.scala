@@ -8,7 +8,7 @@ package grammar
   */
   class Lexer {
 
-    val myMap = Map(("." -> "END"), ("myRobot" -> "IDENT"), ("set" -> "Set"), ("jump" -> "ACTION"))
+    val myMap = Map(("." -> "END"), ("myRobot" -> "IDENT"), ("set" -> "Set"), ("jump" -> "ACTION"), ("2" -> "INTLITERAL"))
 
     /**
       * totalLex reads in the statement and uses the function nextLex to recursively make a list of token lexeme pairs
@@ -24,15 +24,15 @@ package grammar
 
         if (inputStr1.isEmpty) currentList
         else {
-          val lexeme, token, theRest = nextLex(inputStr1).toString()
+          val (lexeme, token, theRest) = nextLex(inputStr1)
           val newPair = (lexeme, token)
           val updatedCurrentList = newPair :: currentList
           // reverse list of tuples in functional style
-          val reverseList = totalLexStub(theRest, updatedCurrentList)
-          reverseList.reverse
+          totalLexStub(theRest, updatedCurrentList)
         }
       }
-      totalLexStub(inputStr, List[(String, String)]())
+      val reverseList = totalLexStub(inputStr, List[(String, String)]())
+      reverseList.reverse
     }
 
     /**
@@ -47,9 +47,9 @@ package grammar
     def nextLex(inputStr: String): (String, String, String) = {
 
       def nextLexStub(inputStr1: String, index: Int): (String, String, String) = {
-        if (inputStr.charAt(index).isLetter) ident(inputStr, index)
-        else if (inputStr.charAt(index).isDigit) intLiteral(inputStr, index)
-        else symbols(inputStr, index)
+        if (inputStr1.charAt(index).isLetter) ident(inputStr1, index)
+        else if (inputStr1.charAt(index).isDigit) intLiteral(inputStr1, index)
+        else symbols(inputStr1, index)
       }
       nextLexStub(inputStr, 0)
     }
@@ -59,12 +59,12 @@ package grammar
       *
       * @param lexeme : String
       * @return String
-      *         myMap value for the lexeme if found
+      *         myMap value for the lexeme if found which is the token
       */
     def lookup(lexeme: String): String = {
-      if (lexeme.isEmpty) "Error, token is empty!!"
+      if (lexeme.isEmpty) "Empty"
       else if (isMapValue(lexeme)) getMapValue(lexeme)
-      else "Error, lexeme is invalid"
+      else "Error"
     }
 
     /**
@@ -77,8 +77,8 @@ package grammar
       *         lexeme, token, the rest of the input string
       */
     def ident(inputStr: String, index: Int): (String, String, String) = {
-      if (index > inputStr.length) (inputStr, lookup(inputStr), "")
-      else if (!inputStr.charAt(index).isLetter) (inputStr.substring(0, index), lookup(inputStr), inputStr.substring(index + 1, inputStr.length - 1))
+      if (index >= inputStr.length) (inputStr, lookup(inputStr), "")
+      else if (!inputStr.charAt(index).isLetter) (inputStr.substring(0, index), lookup(inputStr.substring(0, index)), inputStr.substring(index + 1, inputStr.length))
       else ident(inputStr, index + 1)
     }
 
@@ -92,8 +92,8 @@ package grammar
       *         lexeme, token, the rest of the input string
       */
     def intLiteral(inputStr: String, index: Int): (String, String, String) = {
-      if (index > inputStr.length) (inputStr, lookup(inputStr), "")
-      else if (!inputStr.charAt(index).isDigit) (inputStr.substring(0, index), lookup(inputStr), inputStr.substring(index + 1, inputStr.length - 1))
+      if (index >= inputStr.length) (inputStr, lookup(inputStr), "")
+      else if (!inputStr.charAt(index).isDigit) (inputStr.substring(0, index), lookup(inputStr.substring(0, index)), inputStr.substring(index + 1, inputStr.length))
       else intLiteral(inputStr, index + 1)
     }
 
@@ -107,8 +107,8 @@ package grammar
       *         lexeme, token, the rest of the input string
       */
     def symbols(inputStr: String, index: Int): (String, String, String) = {
-      if (index > inputStr.length) (inputStr, lookup(inputStr), "")
-      else if (inputStr.charAt(index).isLetterOrDigit) (inputStr.substring(0, index), lookup(inputStr), inputStr.substring(index + 1, inputStr.length - 1))
+      if (index >= inputStr.length) (inputStr, lookup(inputStr), "")
+      else if (inputStr.charAt(index).isLetterOrDigit) (inputStr.substring(0, index), lookup(inputStr.substring(0, index)), inputStr.substring(index + 1, inputStr.length))
       else symbols(inputStr, index + 1)
     }
 

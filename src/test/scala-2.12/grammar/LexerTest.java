@@ -1,6 +1,7 @@
 package grammar;
 
 import org.junit.Test;
+import scala.Tuple3;
 
 import static org.junit.Assert.*;
 
@@ -17,8 +18,9 @@ public class LexerTest {
     }
 
     @Test
-    public void testMyMap() throws Exception {
-
+    public void testErrorLookup() throws Exception {
+        String token = testClass.lookup(",");
+        assertEquals("Error", token);
     }
 
     @Test
@@ -34,6 +36,7 @@ public class LexerTest {
     @Test
     public void testTotalLex() throws Exception {
 
+
     }
 
     @Test
@@ -43,6 +46,16 @@ public class LexerTest {
 
     @Test
     public void testIdent() throws Exception {
+        String lexeme = "";
+        String token = "";
+        String theRest = "";
+
+        // Tuple3(lexeme, token, theRest) = testClass.ident("", 0);
+
+        testClass.ident("String", 0);
+
+        assertEquals("END", token);
+         //
 
     }
 
