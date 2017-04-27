@@ -28,7 +28,7 @@ public class LexerTest {
 
     @Test
     public void testIdent() throws Exception {
-        Tuple3<String, String, String> identTuple = testClass.ident("set .", 0);
+        Tuple3<String, String, String> identTuple = testClass.ident("set.set", 0);
 
         assertEquals("set", identTuple._1());
         assertEquals("Set", identTuple._2());
@@ -50,24 +50,13 @@ public class LexerTest {
 
         assertEquals(".", symbolTuple._1());
         assertEquals("END", symbolTuple._2());
-        assertEquals("2 test", symbolTuple._3());
-    }
-
-    @Test
-    public void testTotalLex() throws Exception {
-        // List<Tuple2<String, String>> listOfTuples = testClass.totalLex("move right");
-
-        // assertEquals("move", identTuple._1());
-        // assertEquals("ACTION", identTuple._2());
-        // assertEquals("", identTuple._3());
-
+        assertEquals(". 2 test", symbolTuple._3());
     }
 
     @Test
     public void testNextLex() throws Exception {
 
         Tuple3<String, String, String> identTuple = testClass.nextLex("set myRobot right .");
-
         assertEquals("set", identTuple._1());
         assertEquals("Set", identTuple._2());
         assertEquals("myRobot right .", identTuple._3());

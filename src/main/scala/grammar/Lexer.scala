@@ -47,7 +47,8 @@ package grammar
     def nextLex(inputStr: String): (String, String, String) = {
 
       def nextLexStub(inputStr1: String, index: Int): (String, String, String) = {
-        if (inputStr1.charAt(index).isLetter) ident(inputStr1, index)
+        if (inputStr1.charAt(index) == ' ') nextLexStub(inputStr1.substring(index + 1, inputStr1.length), 0)
+        else if (inputStr1.charAt(index).isLetter) ident(inputStr1, index)
         else if (inputStr1.charAt(index).isDigit) intLiteral(inputStr1, index)
         else symbols(inputStr1, index)
       }
@@ -64,7 +65,7 @@ package grammar
     def lookup(lexeme: String): String = {
       if (lexeme.isEmpty) "Empty"
       else if (isMapValue(lexeme)) getMapValue(lexeme)
-      else "Error"
+      else "IDENT"
     }
 
     /**
@@ -78,7 +79,7 @@ package grammar
       */
     def ident(inputStr: String, index: Int): (String, String, String) = {
       if (index >= inputStr.length) (inputStr, lookup(inputStr), "")
-      else if (!inputStr.charAt(index).isLetter) (inputStr.substring(0, index), lookup(inputStr.substring(0, index)), inputStr.substring(index + 1, inputStr.length))
+      else if (!inputStr.charAt(index).isLetter && !inputStr.charAt(index).isDigit) (inputStr.substring(0, index), lookup(inputStr.substring(0, index)), inputStr.substring(index, inputStr.length))
       else ident(inputStr, index + 1)
     }
 
@@ -93,7 +94,7 @@ package grammar
       */
     def intLiteral(inputStr: String, index: Int): (String, String, String) = {
       if (index >= inputStr.length) (inputStr, lookup(inputStr), "")
-      else if (!inputStr.charAt(index).isDigit) (inputStr.substring(0, index), lookup(inputStr.substring(0, index)), inputStr.substring(index + 1, inputStr.length))
+      else if (!inputStr.charAt(index).isDigit) (inputStr.substring(0, index), lookup(inputStr.substring(0, index)), inputStr.substring(index, inputStr.length))
       else intLiteral(inputStr, index + 1)
     }
 
@@ -107,9 +108,10 @@ package grammar
       *         lexeme, token, the rest of the input string
       */
     def symbols(inputStr: String, index: Int): (String, String, String) = {
-      if (index >= inputStr.length) (inputStr, lookup(inputStr), "")
-      else if (inputStr.charAt(index).isLetterOrDigit) (inputStr.substring(0, index), lookup(inputStr.substring(0, index)), inputStr.substring(index + 1, inputStr.length))
-      else symbols(inputStr, index + 1)
+      (inputStr.charAt(index).toString(), lookup(inputStr.charAt(index).toString()), inputStr.substring(index + 1, inputStr.length()))
+
+      // else if (inputStr.charAt(index).isLetterOrDigit) (inputStr.substring(0, index), lookup(inputStr.substring(0, index)), inputStr.substring(index, inputStr.length))
+      // else symbols(inputStr, index + 1)
     }
 
     def isMapValue(s: String): Boolean = {
