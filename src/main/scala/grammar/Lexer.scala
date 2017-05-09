@@ -5,10 +5,23 @@ package grammar
   *
   * @author  Shelby Cohen
   * @since   3/27/17
+  *
+  *
+  Keywords: (Lexemes, Tokens):
+             DIRECTION → right, left, forward, backward
+             IDENT → myRobot
+             ACTION → walk, jog, run, sprint
+             PART → head, feet, arms, legs, hands
+             FACEPART → eyes, mouth
+             INT → 1, 2, 3, 4, 5, 6...
+             OPERATOR → *, +, -, /
+             ERROR
   */
-  class Lexer {
 
-    val myMap = Map(("." -> "END"), ("myRobot" -> "IDENT"), ("set" -> "Set"), ("jump" -> "ACTION"), ("2" -> "INTLITERAL"))
+  object Lexer {
+
+    val myMap = Map(("." -> "END"), ("myRobot" -> "IDENT"), ("set" -> "SET"), ("head" -> "PART"),
+      ("2" -> "INT"), ("walk" -> "ACTION"), ("right", "DIRECTION"),("forward", "DIRECTION"),("eyes", "FACEPART"), ("*", "OPERATOR"), ("3", "INT"))
 
     /**
       * totalLex reads in the statement and uses the function nextLex to recursively make a list of token lexeme pairs

@@ -13,7 +13,7 @@ case class Terminal(token_lexeme2: (String, String)) extends Node{
     * @return return a string of whitespace
     */
   def toString(inputStr: String): String = {
-    inputStr + "\t" + token_lexeme
+    inputStr + token_lexeme.toString()
 
   }
 

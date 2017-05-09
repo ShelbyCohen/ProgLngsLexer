@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
  */
 public class NonterminalTest {
 
-    Nonterminal testClass = new Nonterminal(Node, Node);
+//    Nonterminal testClass = new Nonterminal(Node, Node);
 
 
     @Test
@@ -25,9 +25,9 @@ public class NonterminalTest {
 
     @Test
     public void testSet_stmt() throws Exception {
-        Tuple2<String, String> token_lexeme = testClass.set_stmt((".", "END"), (" ","test"));
-
-        testClass.toString(token_lexeme);
+//        Tuple2<String, String> token_lexeme = testClass.toString().set_stmt((".", "END"), (" ","test"));
+//
+//        testClass.toString(token_lexeme);
 
     }
 

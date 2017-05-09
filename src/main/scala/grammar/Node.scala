@@ -8,6 +8,11 @@ package grammar
 
 abstract class Node {
 
+  /**
+    *
+    * @param inputStr
+    * @return
+    */
   def toString(inputStr: String): String ;
 
 
