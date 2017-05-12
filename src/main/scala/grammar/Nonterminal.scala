@@ -31,9 +31,6 @@ case class Nonterminal(title2: String, children2: List[Node]) extends Node {
       val return_str = children.head.toString(tabs)
       val term_list = printListOfNodes(children.tail, tabs)
       return_str + "\n"+ term_list
-
     }
-
   }
-
 }

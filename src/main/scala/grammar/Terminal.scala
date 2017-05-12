@@ -14,7 +14,5 @@ case class Terminal(token_lexeme2: (String, String)) extends Node{
     */
   def toString(inputStr: String): String = {
     inputStr + token_lexeme.toString()
-
   }
-
 }
